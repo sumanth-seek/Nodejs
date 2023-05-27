@@ -1,4 +1,4 @@
 steps:
-  - label: "Test"
+  - label: "Tests"
     command: "npm test"
     
