@@ -1,5 +1,5 @@
 steps:
-  - label: ":hammer_and_wrench: Test"
+  - label: "Test"
     command: "npm test"
     agents:
       os: "windows"
