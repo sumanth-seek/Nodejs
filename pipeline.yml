@@ -1,0 +1,9 @@
+steps:
+  - label: ":hammer_and_wrench: Test"
+    command: "npm test"
+    agents:
+      os: "windows"
+    plugins:
+      - docker#v3.6.0:
+          image: "node:14"
+          always-pull: true
