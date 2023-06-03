@@ -12,7 +12,11 @@
     "yargs": "^16.2.0"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "export": "npm run export",
+
   },
   "repository": {
     "type": "git",
