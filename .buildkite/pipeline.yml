@@ -17,6 +17,7 @@ steps:
     command: echo " Launch the rocket"
     key: deploy
     depends_on: test
+  
   - name: ":docker: Build and Push Docker Image"
     plugins:
       - docker#v3.3.0:
