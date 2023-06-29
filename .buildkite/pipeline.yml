@@ -1,18 +1,4 @@
 steps:
-  - label: " :Build: build"
-    command: echo "Build the rocket"
-    key: build
-  
-  - label: " Test"
-    command: echo "Test the rocket"
-    key: test
-    depends_on: build
-
-  - label: " Deploy"
-    command: echo " Launch the rocket"
-    key: deploy
-    depends_on: test
-  
   - name: ":docker: Build and Push Docker Image"
     plugins:
       - docker#v3.3.0:
@@ -27,6 +13,20 @@ steps:
     command:
       - docker build -t your-docker-image:tag .
       - docker push your-docker-image:tag
+    
+  - label: " :Build: build"
+    command: echo "Build the rocket"
+    key: build
+  
+  - label: " Test"
+    command: echo "Test the rocket"
+    key: test
+    depends_on: build
+
+  - label: " Deploy"
+    command: echo " Launch the rocket"
+    key: deploy
+    depends_on: test
   
   - label: ":hammer: Example Script"
     command: "tests.sh"
