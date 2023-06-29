@@ -17,6 +17,20 @@ steps:
     command: echo " Launch the rocket"
     key: deploy
     depends_on: test
+  - name: ":docker: Build and Push Docker Image"
+    plugins:
+      - docker#v3.3.0:
+          image: my-image:tag
+          workdir: /root/dockerfile
+          environment:
+            - DOCKER_BUILDKIT=1
+            - BUILDKIT_PROGRESS=plain
+    env:
+      # Set any required environment variables
+      - MY_ENV_VAR=Dev
+    command:
+      - docker build -t your-docker-image:tag .
+      - docker push your-docker-image:tag
   
   - label: ":hammer: Example Script"
     command: "tests.sh"
