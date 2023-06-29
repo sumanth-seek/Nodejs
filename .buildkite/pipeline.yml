@@ -1,9 +1,12 @@
 steps:
-  - label: ":docker: Build"
+  - commands:
+      - "docker build ."
     plugins:
       - docker#v3.3.0:
-          build:
-            - ./path/to/docker/plugins
+          image: "docker:latest"
+          always-pull: true
+          volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
     
   - label: " :Build: build"
     command: echo "Build the rocket"
