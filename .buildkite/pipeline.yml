@@ -3,7 +3,7 @@ steps:
     plugins:
       - docker#v3.3.0:
           build:
-            - ./path/to/docker/plugin
+            - ./path/to/docker/plugins
     
   - label: " :Build: build"
     command: echo "Build the rocket"
