@@ -27,3 +27,7 @@ steps:
     artifact_paths: "artifacts/*"
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
+  - label: ":package: Package"
+    command: tests.sh
+    artifact_paths: "pkg/*"
+    
