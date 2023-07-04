@@ -1,13 +1,4 @@
 steps:
-  - commands:
-      - "docker build ."
-    plugins:
-      - docker#v3.3.0:
-          image: "docker:latest"
-          always-pull: true
-          volumes:
-            - "/var/run/docker.sock:/var/run/docker.sock"
-    
   - label: " :Build: build"
     command: echo "Build the rocket"
     key: build
@@ -22,11 +13,6 @@ steps:
     key: deploy
     depends_on: test
   
-  - label: ":hammer: Example Script"
-    command: "tests.sh"
-    artifact_paths: "artifacts/*"
-    agents:
-      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
   - label: ":package: Package"
     command: tests.sh
     artifact_paths: "pkg/*"
