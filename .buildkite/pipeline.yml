@@ -17,3 +17,9 @@ steps:
     command: tests.sh
     artifact_paths: "pkg/*"
     
+  - label: ":hammer: Example Script"
+    command: "tests.sh"
+    artifact_paths: "artifacts/*"
+    agents:
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
+    
